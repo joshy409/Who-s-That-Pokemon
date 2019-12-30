@@ -13,6 +13,7 @@
 		897E10D423B5CB9A00981A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897E10D223B5CB9A00981A18 /* Main.storyboard */; };
 		897E10D623B5CB9B00981A18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 897E10D523B5CB9B00981A18 /* Assets.xcassets */; };
 		897E10D923B5CB9B00981A18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897E10D723B5CB9B00981A18 /* LaunchScreen.storyboard */; };
+		897E10E223B5CBAC00981A18 /* PokemonClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 897E10E123B5CBAC00981A18 /* PokemonClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		897E10D523B5CB9B00981A18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		897E10D823B5CB9B00981A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		897E10DA23B5CB9B00981A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		897E10E023B5CBA000981A18 /* PokemonClassifer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PokemonClassifer.entitlements; sourceTree = "<group>"; };
+		897E10E123B5CBAC00981A18 /* PokemonClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = PokemonClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 		897E10CB23B5CB9A00981A18 /* PokemonClassifer */ = {
 			isa = PBXGroup;
 			children = (
+				897E10E023B5CBA000981A18 /* PokemonClassifer.entitlements */,
 				897E10CC23B5CB9A00981A18 /* AppDelegate.swift */,
 				897E10CE23B5CB9A00981A18 /* SceneDelegate.swift */,
 				897E10D023B5CB9A00981A18 /* ViewController.swift */,
@@ -63,6 +67,7 @@
 				897E10D523B5CB9B00981A18 /* Assets.xcassets */,
 				897E10D723B5CB9B00981A18 /* LaunchScreen.storyboard */,
 				897E10DA23B5CB9B00981A18 /* Info.plist */,
+				897E10E123B5CBAC00981A18 /* PokemonClassifier.mlmodel */,
 			);
 			path = PokemonClassifer;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				897E10D123B5CB9A00981A18 /* ViewController.swift in Sources */,
 				897E10CD23B5CB9A00981A18 /* AppDelegate.swift in Sources */,
 				897E10CF23B5CB9A00981A18 /* SceneDelegate.swift in Sources */,
+				897E10E223B5CBAC00981A18 /* PokemonClassifier.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +290,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PokemonClassifer/PokemonClassifer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 3B6T4CBYFQ;
 				INFOPLIST_FILE = PokemonClassifer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -293,6 +301,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshuayang.PokemonClassifer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,7 +311,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PokemonClassifer/PokemonClassifer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 3B6T4CBYFQ;
 				INFOPLIST_FILE = PokemonClassifer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -311,6 +322,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshuayang.PokemonClassifer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
