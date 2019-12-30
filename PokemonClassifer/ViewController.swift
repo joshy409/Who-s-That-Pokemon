@@ -9,6 +9,8 @@
 import CoreML
 import Vision
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -51,6 +53,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 fatalError("could not classify image")
             }
             self.navigationItem.title = classification.identifier.capitalized
+            self.getInfo(pokemon: classification.identifier.lowercased())
         }
         let handler = VNImageRequestHandler(ciImage: image)
         
@@ -64,6 +67,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func cameraPressed(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    func getInfo(pokemon: String) {
+        
+        Alamofire.request("https://pokeapi.co/api/v2/pokemon-species/\(pokemon)").responseJSON { (response) in
+            if response.result.isSuccess {
+                print(response)
+                let pokemonJSON : JSON = JSON(response.result.value!)
+                let flavorTexts = pokemonJSON["flavor_text_entries"][]
+                print(flavorTexts[2]["flavor_text"])
+            } else {
+                print("request failed")
+            }
+        }
     }
 }
 

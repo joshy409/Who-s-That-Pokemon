@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76D610E9794F8A72DC690E8D /* Pods_PokemonClassifer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDAF478D7EACEAFB2C6E890D /* Pods_PokemonClassifer.framework */; };
 		897E10CD23B5CB9A00981A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897E10CC23B5CB9A00981A18 /* AppDelegate.swift */; };
 		897E10CF23B5CB9A00981A18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897E10CE23B5CB9A00981A18 /* SceneDelegate.swift */; };
 		897E10D123B5CB9A00981A18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897E10D023B5CB9A00981A18 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0825A91685D3D9F48D19E734 /* Pods-PokemonClassifer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonClassifer.release.xcconfig"; path = "Target Support Files/Pods-PokemonClassifer/Pods-PokemonClassifer.release.xcconfig"; sourceTree = "<group>"; };
 		897E10C923B5CB9A00981A18 /* PokemonClassifer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonClassifer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		897E10CC23B5CB9A00981A18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		897E10CE23B5CB9A00981A18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,6 +29,8 @@
 		897E10DA23B5CB9B00981A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		897E10E023B5CBA000981A18 /* PokemonClassifer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PokemonClassifer.entitlements; sourceTree = "<group>"; };
 		897E10E123B5CBAC00981A18 /* PokemonClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = PokemonClassifier.mlmodel; sourceTree = "<group>"; };
+		BDAF478D7EACEAFB2C6E890D /* Pods_PokemonClassifer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonClassifer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E76BE5EFBACAA7FC8502C944 /* Pods-PokemonClassifer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonClassifer.debug.xcconfig"; path = "Target Support Files/Pods-PokemonClassifer/Pods-PokemonClassifer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76D610E9794F8A72DC690E8D /* Pods_PokemonClassifer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +50,8 @@
 			children = (
 				897E10CB23B5CB9A00981A18 /* PokemonClassifer */,
 				897E10CA23B5CB9A00981A18 /* Products */,
+				D16909289829DE27807CC68E /* Pods */,
+				A499AE2C5C1805F0043E89D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +79,23 @@
 			path = PokemonClassifer;
 			sourceTree = "<group>";
 		};
+		A499AE2C5C1805F0043E89D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDAF478D7EACEAFB2C6E890D /* Pods_PokemonClassifer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D16909289829DE27807CC68E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E76BE5EFBACAA7FC8502C944 /* Pods-PokemonClassifer.debug.xcconfig */,
+				0825A91685D3D9F48D19E734 /* Pods-PokemonClassifer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,9 +103,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 897E10DD23B5CB9B00981A18 /* Build configuration list for PBXNativeTarget "PokemonClassifer" */;
 			buildPhases = (
+				379619C94E8694EF4AF7402F /* [CP] Check Pods Manifest.lock */,
 				897E10C523B5CB9A00981A18 /* Sources */,
 				897E10C623B5CB9A00981A18 /* Frameworks */,
 				897E10C723B5CB9A00981A18 /* Resources */,
+				B42165D262F3D15F9004979D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,6 +163,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		379619C94E8694EF4AF7402F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokemonClassifer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B42165D262F3D15F9004979D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokemonClassifer/Pods-PokemonClassifer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokemonClassifer/Pods-PokemonClassifer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokemonClassifer/Pods-PokemonClassifer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		897E10C523B5CB9A00981A18 /* Sources */ = {
@@ -288,6 +356,7 @@
 		};
 		897E10DE23B5CB9B00981A18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E76BE5EFBACAA7FC8502C944 /* Pods-PokemonClassifer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PokemonClassifer/PokemonClassifer.entitlements;
@@ -309,6 +378,7 @@
 		};
 		897E10DF23B5CB9B00981A18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0825A91685D3D9F48D19E734 /* Pods-PokemonClassifer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PokemonClassifer/PokemonClassifer.entitlements;
