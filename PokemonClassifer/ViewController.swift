@@ -16,7 +16,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let imagePicker = UIImagePickerController()
     
-    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var flavorTextLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -24,15 +25,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Do any additional setup after loading the view.
         
         imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         
         if let selectedImage = info[.originalImage] as? UIImage {
-            
-            
-            
+
             guard let ciimage = CIImage(image: selectedImage) else {
                 fatalError("failed to convert to CIIMage")
             }
@@ -52,8 +52,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             guard let classification = request.results?.first as? VNClassificationObservation else {
                 fatalError("could not classify image")
             }
-            self.navigationItem.title = classification.identifier.capitalized
-            self.getInfo(pokemon: classification.identifier.lowercased())
+            let classifiedPokemon = classification.identifier
+            self.navigationItem.title = classifiedPokemon.capitalized
+            self.nameLabel.text = classifiedPokemon.capitalized
+            self.getInfo(pokemon: classifiedPokemon.lowercased())
         }
         let handler = VNImageRequestHandler(ciImage: image)
         
@@ -74,12 +76,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         Alamofire.request("https://pokeapi.co/api/v2/pokemon-species/\(pokemon)").responseJSON { (response) in
             if response.result.isSuccess {
-                print(response)
+                //print(response)
                 let pokemonJSON : JSON = JSON(response.result.value!)
                 let flavorTexts = pokemonJSON["flavor_text_entries"][]
-                print(flavorTexts[2]["flavor_text"])
+                self.getEnFlavorText(texts: flavorTexts)
             } else {
                 print("request failed")
+            }
+        }
+    }
+    
+    func getEnFlavorText(texts: JSON) {
+        while true {
+            let rand = Int.random(in: 0 ..< texts.count)
+            if texts[rand]["language"]["name"] == "en" {
+                print(rand)
+                let flavorText = texts[rand]["flavor_text"].stringValue
+                flavorTextLabel.text = flavorText.replacingOccurrences(of: "\n", with: " ")
+                break
             }
         }
     }
