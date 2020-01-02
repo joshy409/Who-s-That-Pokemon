@@ -26,6 +26,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
+        navigationItem.title = "Who's that Pokemon!"
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -53,7 +54,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 fatalError("could not classify image")
             }
             let classifiedPokemon = classification.identifier
-            self.navigationItem.title = classifiedPokemon.capitalized
             self.nameLabel.text = classifiedPokemon.capitalized
             self.getInfo(pokemon: classifiedPokemon.lowercased())
         }
