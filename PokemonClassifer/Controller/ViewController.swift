@@ -20,6 +20,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var flavorTextLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    var pokemonData = PokemonData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -53,9 +55,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             guard let classification = request.results?.first as? VNClassificationObservation else {
                 fatalError("could not classify image")
             }
+            // if classification is successful
             let classifiedPokemon = classification.identifier
             self.nameLabel.text = classifiedPokemon.capitalized
-            self.getInfo(pokemon: classifiedPokemon.lowercased())
+            self.pokemonData.updateInfo(pokemon: classifiedPokemon.lowercased())
+            //self.flavorTextLabel.text = PokemonInfo.pokeInfo.flavorText
+            
         }
         let handler = VNImageRequestHandler(ciImage: image)
         
@@ -66,36 +71,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    func updateLabel() {
+        self.flavorTextLabel.text = PokemonInfo.pokeInfo.flavorText
+    }
     
     @IBAction func cameraPressed(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)
-    }
-    
-    
-    func getInfo(pokemon: String) {
-        
-        Alamofire.request("https://pokeapi.co/api/v2/pokemon-species/\(pokemon)").responseJSON { (response) in
-            if response.result.isSuccess {
-                //print(response)
-                let pokemonJSON : JSON = JSON(response.result.value!)
-                let flavorTexts = pokemonJSON["flavor_text_entries"][]
-                self.getEnFlavorText(texts: flavorTexts)
-            } else {
-                print("request failed")
-            }
-        }
-    }
-    
-    func getEnFlavorText(texts: JSON) {
-        while true {
-            let rand = Int.random(in: 0 ..< texts.count)
-            if texts[rand]["language"]["name"] == "en" {
-                print(rand)
-                let flavorText = texts[rand]["flavor_text"].stringValue
-                flavorTextLabel.text = flavorText.replacingOccurrences(of: "\n", with: " ")
-                break
-            }
-        }
     }
 }
 
