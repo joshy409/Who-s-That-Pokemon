@@ -5,6 +5,9 @@ Give it a picture of the Generation 1 Pokemons and AI will tell you what Pokemon
 
 ## Resources
 AlamoFire
+
 SwiftyJSON
+
 pokemongo.fandom.com
+
 PokeAPI
