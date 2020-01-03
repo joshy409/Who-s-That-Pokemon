@@ -19,8 +19,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var flavorTextLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var typeLabel: UILabel!
     
-    var pokemonData = PokemonData()
+    var pokemonData = PokemonDataGrabber()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +30,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         navigationItem.title = "Who's that Pokemon!"
+        PokemonData.pokeInfo.delegate = self
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         
         if let selectedImage = info[.originalImage] as? UIImage {
-
+            
+            PokemonData.pokeInfo.reset()
+            
             guard let ciimage = CIImage(image: selectedImage) else {
                 fatalError("failed to convert to CIIMage")
             }
@@ -71,12 +75,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    func updateLabel() {
-        self.flavorTextLabel.text = PokemonInfo.pokeInfo.flavorText
-    }
     
     @IBAction func cameraPressed(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)
     }
+    
 }
 
+//MARK: - PokemonInfoDelegate
+
+extension ViewController: PokemonDataDelegate {
+    func typesDidChange(leftValue: [String]) {
+        typeLabel.text! = ""
+        for type in leftValue {
+            typeLabel.text! += "\(type) "
+        }
+    }
+    
+    func flavorTextDidChange(leftValue: String) {
+        flavorTextLabel.text = PokemonData.pokeInfo.flavorText
+    }
+}

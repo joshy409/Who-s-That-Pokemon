@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3fy-us-pm9">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,21 +16,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s9C-RG-2X3">
-                                <rect key="frame" x="20" y="100" width="374" height="374"/>
+                                <rect key="frame" x="10" y="98" width="394" height="394"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="374" id="h9d-Ug-L0g"/>
+                                    <constraint firstAttribute="width" secondItem="s9C-RG-2X3" secondAttribute="height" multiplier="1:1" id="3gk-Wd-u0g"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="TLa-8k-zFp">
-                                <rect key="frame" x="20" y="563" width="374" height="287"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="name label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C22-Iu-UeC">
+                                <rect key="frame" x="10" y="502" width="394" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="UKg-J8-VeC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C22-Iu-UeC">
-                                <rect key="frame" x="20" y="503" width="374" height="52"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flavortext label" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="TLa-8k-zFp">
+                                <rect key="frame" x="10" y="628" width="394" height="234"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="TypeLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t82-ib-wuS">
+                                <rect key="frame" x="10" y="565" width="394" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="B81-YG-dMH"/>
+                                    <constraint firstAttribute="height" constant="55" id="4lh-qK-mma"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -39,18 +48,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="s9C-RG-2X3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="3A3-ho-54i"/>
-                            <constraint firstItem="s9C-RG-2X3" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="4gK-Gg-9TL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TLa-8k-zFp" secondAttribute="bottom" constant="12" id="7iT-nI-tpb"/>
-                            <constraint firstItem="TLa-8k-zFp" firstAttribute="top" secondItem="C22-Iu-UeC" secondAttribute="bottom" constant="8" id="N5l-dV-iUI"/>
-                            <constraint firstItem="TLa-8k-zFp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SOw-Ns-odN"/>
-                            <constraint firstItem="C22-Iu-UeC" firstAttribute="trailing" secondItem="TLa-8k-zFp" secondAttribute="trailing" id="Vfi-29-9As"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TLa-8k-zFp" secondAttribute="trailing" constant="20" id="Y1Y-2I-itv"/>
-                            <constraint firstItem="C22-Iu-UeC" firstAttribute="trailing" secondItem="s9C-RG-2X3" secondAttribute="trailing" id="ZP7-Qw-SFt"/>
-                            <constraint firstItem="C22-Iu-UeC" firstAttribute="leading" secondItem="TLa-8k-zFp" secondAttribute="leading" id="bCC-19-aBB"/>
-                            <constraint firstItem="C22-Iu-UeC" firstAttribute="leading" secondItem="s9C-RG-2X3" secondAttribute="leading" id="iq0-aP-vWZ"/>
-                            <constraint firstItem="s9C-RG-2X3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pUh-mz-ilr"/>
-                            <constraint firstItem="C22-Iu-UeC" firstAttribute="top" secondItem="s9C-RG-2X3" secondAttribute="bottom" constant="29" id="sh9-0r-Trl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TLa-8k-zFp" secondAttribute="trailing" constant="10" id="2nS-Or-yC0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t82-ib-wuS" secondAttribute="trailing" constant="10" id="Bhf-b7-TBn"/>
+                            <constraint firstItem="C22-Iu-UeC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="EvP-cE-ZaF"/>
+                            <constraint firstItem="t82-ib-wuS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="JAY-o1-4sh"/>
+                            <constraint firstItem="TLa-8k-zFp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="JOt-p0-dVE"/>
+                            <constraint firstItem="C22-Iu-UeC" firstAttribute="top" secondItem="s9C-RG-2X3" secondAttribute="bottom" constant="10" id="MG8-gP-19n"/>
+                            <constraint firstItem="TLa-8k-zFp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="RaX-Gy-vHL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s9C-RG-2X3" secondAttribute="trailing" constant="10" id="SPE-sE-f86"/>
+                            <constraint firstItem="TLa-8k-zFp" firstAttribute="top" secondItem="t82-ib-wuS" secondAttribute="bottom" constant="8" id="W7W-n5-Bmb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="C22-Iu-UeC" secondAttribute="trailing" constant="10" id="Zdv-LF-8XZ"/>
+                            <constraint firstItem="s9C-RG-2X3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="ixU-Ap-5qi"/>
+                            <constraint firstItem="C22-Iu-UeC" firstAttribute="top" secondItem="s9C-RG-2X3" secondAttribute="bottom" constant="10" id="khe-x7-mHq"/>
+                            <constraint firstItem="s9C-RG-2X3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="kza-fH-HpE"/>
+                            <constraint firstItem="t82-ib-wuS" firstAttribute="top" secondItem="C22-Iu-UeC" secondAttribute="bottom" constant="8" id="wN3-1U-M26"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -65,6 +76,7 @@
                         <outlet property="flavorTextLabel" destination="TLa-8k-zFp" id="kpJ-8v-PV4"/>
                         <outlet property="imageView" destination="s9C-RG-2X3" id="UnD-15-zU7"/>
                         <outlet property="nameLabel" destination="C22-Iu-UeC" id="0GQ-Bl-ubN"/>
+                        <outlet property="typeLabel" destination="t82-ib-wuS" id="vSq-Br-3Mb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
