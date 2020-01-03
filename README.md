@@ -6,7 +6,7 @@ Pokemon Image Classifier for iPhones!
 Give it a picture of the Generation 1 Pokemons and AI will tell you what Pokemon it is!
 
 ## How it Looks
-![In game screenshot](PokemonClassifer/AppScreenShot.png)
+![In game screenshot](PokemonClassifer/AppScreenShot.jpg)
 
 ### TODOS
 Make image picker do both photo library and camera
