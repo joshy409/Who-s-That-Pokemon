@@ -21,3 +21,5 @@ SwiftyJSON
 pokemongo.fandom.com
 
 PokeAPI
+
+https://www.kaggle.com/thedagger/pokemon-generation-one
