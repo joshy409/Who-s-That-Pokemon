@@ -1,6 +1,6 @@
 # Who's That Pokemon!
 <!---![LOGO](PokemonClassifer/Assets.xcassets/Logo.imageset/5hQ59Dm4_400x400@3x.png)--->
-![In game screenshot](PokemonClassifer/AppScreenShot.jpg)
+![In game screenshot](PokemonClassifer/AppScreenShot.jpg) ![In game demo](PokemonClassifer/whos-that-pokemon-demo-.gif)
 
 Pokemon Image Classifier for iPhones!
 
