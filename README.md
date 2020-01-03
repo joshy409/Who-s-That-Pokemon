@@ -1,5 +1,5 @@
 # Who's That Pokemon!
-![LOGO](PokemonClassifer/Assets.xcassets/Logo.imageset/5hQ59Dm4_400x400@3x.png)
+<!---![LOGO](PokemonClassifer/Assets.xcassets/Logo.imageset/5hQ59Dm4_400x400@3x.png)--->
 
 Pokemon Image Classifier for iPhones!
 
