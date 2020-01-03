@@ -5,7 +5,7 @@ Give it a picture of the Generation 1 Pokemons and AI will tell you what Pokemon
 
 
 ### TODOS
-Show accuracy
+Make image picker do both photo library and camera
 
 Train better ML models
 
