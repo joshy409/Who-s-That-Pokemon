@@ -6,7 +6,9 @@ Give it a picture of the Generation 1 Pokemons and AI will tell you what Pokemon
 
 ### TODOS
 Show accuracy
+
 Train better ML models
+
 APP Icons
 
 ## Resources
