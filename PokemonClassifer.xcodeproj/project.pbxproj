@@ -51,12 +51,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8935FB0B23BFDE4E00EF248C /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		897E10C023B5CB9A00981A18 = {
 			isa = PBXGroup;
 			children = (
 				897E10CB23B5CB9A00981A18 /* PokemonClassifer */,
 				897E10CA23B5CB9A00981A18 /* Products */,
 				D16909289829DE27807CC68E /* Pods */,
+				8935FB0B23BFDE4E00EF248C /* Screenshots */,
 				A499AE2C5C1805F0043E89D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
