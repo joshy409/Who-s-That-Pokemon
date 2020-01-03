@@ -1,0 +1,6 @@
+framework module Pods_PokemonClassifer {
+  umbrella header "Pods-PokemonClassifer-umbrella.h"
+
+  export *
+  module * { export * }
+}
