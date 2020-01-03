@@ -1,5 +1,5 @@
 # Who's That Pokemon!
-Pokemon Image Classifier
+Pokemon Image Classifier for iPhones!
 
 Give it a picture of the Generation 1 Pokemons and AI will tell you what Pokemon it is!
 
