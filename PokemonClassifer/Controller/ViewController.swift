@@ -30,6 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.sourceType = .photoLibrary
         navigationItem.title = "Who's that Pokemon!"
         PokemonData.pokeInfo.delegate = self
+        flavorTextLabel.text = "Show me a picture of a Pokemon\nand I'll tell you which one it is!"
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
