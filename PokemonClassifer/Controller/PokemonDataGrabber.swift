@@ -39,8 +39,8 @@ class PokemonDataGrabber: ObservableObject {
     func getEnFlavorText(texts: JSON) {
         while true {
             let rand = Int.random(in: 0 ..< texts.count)
-            if texts[46]["language"]["name"] == "en" {
-                let enFlavorText = texts[46]["flavor_text"].stringValue
+            if texts[rand]["language"]["name"] == "en" {
+                let enFlavorText = texts[rand]["flavor_text"].stringValue
                     .replacingOccurrences(of: "\n", with: " ")
                     .replacingOccurrences(of: "\u{000C}", with: " ")
                 PokemonData.pokeInfo.flavorText = enFlavorText

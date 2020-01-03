@@ -61,7 +61,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             // if classification is successful
             let classifiedPokemon = classification.identifier
-            self.nameLabel.text = classifiedPokemon.capitalized
+            self.nameLabel.text = "\(classifiedPokemon.capitalized) " + String(format: "%.0f", classification.confidence * 100) + "%"
             self.pokemonData.updateInfo(pokemon: classifiedPokemon.lowercased())
         }
         
