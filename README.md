@@ -9,9 +9,6 @@ Make image picker do both photo library and camera
 
 Train better ML models
 
-APP Icons
-
-Start Screen with instructions
 
 ## Resources
 AlamoFire
