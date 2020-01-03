@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class PokemonDataGrabber: ObservableObject {
+    
     func updateInfo(pokemon: String) {
         
         Alamofire.request("https://pokeapi.co/api/v2/pokemon-species/\(pokemon)").responseJSON { (response) in
@@ -38,17 +39,18 @@ class PokemonDataGrabber: ObservableObject {
     func getEnFlavorText(texts: JSON) {
         while true {
             let rand = Int.random(in: 0 ..< texts.count)
-            if texts[rand]["language"]["name"] == "en" {
-                let enFlavorText = texts[rand]["flavor_text"].stringValue
-                PokemonData.pokeInfo.flavorText = enFlavorText.replacingOccurrences(of: "\n", with: " ")
-                print(PokemonData.pokeInfo.flavorText)
+            if texts[46]["language"]["name"] == "en" {
+                let enFlavorText = texts[46]["flavor_text"].stringValue
+                    .replacingOccurrences(of: "\n", with: " ")
+                    .replacingOccurrences(of: "\u{000C}", with: " ")
+                PokemonData.pokeInfo.flavorText = enFlavorText
                 break
             }
         }
     }
     
     func getTypes(pokemonTypes: JSON) {
-        for n in 0...pokemonTypes.count {
+        for n in 0..<pokemonTypes.count {
             PokemonData.pokeInfo.types.append(pokemonTypes[n]["type"]["name"].stringValue.capitalized)
         }
     }

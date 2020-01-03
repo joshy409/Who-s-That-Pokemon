@@ -26,7 +26,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         navigationItem.title = "Who's that Pokemon!"
@@ -51,6 +50,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func detect(image: CIImage) {
+        
         guard let model = try? VNCoreMLModel(for: PokemonClassifier().model) else {
             fatalError("cannot load model")
         }
@@ -63,9 +63,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let classifiedPokemon = classification.identifier
             self.nameLabel.text = classifiedPokemon.capitalized
             self.pokemonData.updateInfo(pokemon: classifiedPokemon.lowercased())
-            //self.flavorTextLabel.text = PokemonInfo.pokeInfo.flavorText
-            
         }
+        
         let handler = VNImageRequestHandler(ciImage: image)
         
         do {
@@ -85,14 +84,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //MARK: - PokemonInfoDelegate
 
 extension ViewController: PokemonDataDelegate {
+    
     func typesDidChange(leftValue: [String]) {
-        typeLabel.text! = ""
+        
+//        typeLabel.text! = ""
+        let fullString = NSMutableAttributedString(string: "")
+        
         for type in leftValue {
-            typeLabel.text! += "\(type) "
+             // create our NSTextAttachment
+            let image1Attachment = NSTextAttachment()
+            image1Attachment.image = UIImage(named: "\(type)")
+            image1Attachment.bounds = CGRect(x: 0, y: -8, width: 25, height: 25)
+
+            // wrap the attachment in its own attributed string so we can append it
+            let image1String = NSAttributedString(attachment: image1Attachment)
+
+             // add the NSTextAttachment wrapper to our full string, then add some more text.
+
+             fullString.append(image1String)
+             fullString.append(NSAttributedString(string: " \(type) " ))
         }
+        
+        // draw the result in a label
+        typeLabel.attributedText = fullString
     }
     
     func flavorTextDidChange(leftValue: String) {
         flavorTextLabel.text = PokemonData.pokeInfo.flavorText
+        //flavorTextLabel.sizeToFit()
     }
 }
