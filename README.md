@@ -11,6 +11,8 @@ Train better ML models
 
 APP Icons
 
+Start Screen with instructions
+
 ## Resources
 AlamoFire
 
