@@ -18,8 +18,10 @@ AlamoFire
 
 SwiftyJSON
 
-pokemongo.fandom.com
+Pokemon Go Twitter
 
-PokeAPI
+https://pokemongo.fandom.com/wiki/Types
+
+https://pokeapi.co/
 
 https://www.kaggle.com/thedagger/pokemon-generation-one
