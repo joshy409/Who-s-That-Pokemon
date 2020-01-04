@@ -27,7 +27,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
         navigationItem.title = "Who's that Pokemon!"
         PokemonData.pokeInfo.delegate = self
         flavorTextLabel.text = "Show me a picture of a Pokemon\nand I'll tell you which one it is!"
@@ -77,9 +76,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func cameraPressed(_ sender: UIBarButtonItem) {
+         imagePicker.sourceType = .camera
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func photoPressed(_ sender: UIBarButtonItem) {
+         imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
 }
 
 //MARK: - PokemonInfoDelegate

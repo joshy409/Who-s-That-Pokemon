@@ -65,6 +65,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="LwZ-x6-gzE">
+                        <barButtonItem key="leftBarButtonItem" image="photo.on.rectangle" catalog="system" id="sAD-Yz-J5K">
+                            <connections>
+                                <action selector="photoPressed:" destination="BYZ-38-t0r" id="A1x-GQ-sUa"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="LRB-gd-fhx">
                             <connections>
                                 <action selector="cameraPressed:" destination="BYZ-38-t0r" id="zOe-Su-N5U"/>
@@ -103,5 +108,6 @@
     </scenes>
     <resources>
         <image name="Logo" width="133.33332824707031" height="133.33332824707031"/>
+        <image name="photo.on.rectangle" catalog="system" width="64" height="48"/>
     </resources>
 </document>
