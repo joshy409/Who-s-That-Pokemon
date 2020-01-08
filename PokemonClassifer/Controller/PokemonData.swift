@@ -25,9 +25,12 @@ class PokemonData {
         }
     }
     
+    var name: String = ""
+    
     func reset() {
         flavorText = ""
         types = []
+        name = ""
     }
     
     static let pokeInfo = PokemonData()

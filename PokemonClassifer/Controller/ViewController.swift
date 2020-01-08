@@ -20,8 +20,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var flavorTextLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var typeLabel: UILabel!
-    
+
     var pokemonData = PokemonDataGrabber()
+    var showOriginal: Bool = false
+    
+    var originalImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +33,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         navigationItem.title = "Who's that Pokemon!"
         PokemonData.pokeInfo.delegate = self
         flavorTextLabel.text = "Show me a picture of a Pokemon\nand I'll tell you which one it is!"
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.imageTapped(_:)))
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        self.imageView.addGestureRecognizer(tap)
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         
         if let selectedImage = info[.originalImage] as? UIImage {
+            
+            originalImage = selectedImage
             
             PokemonData.pokeInfo.reset()
             
@@ -62,6 +73,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // if classification is successful
             let classifiedPokemon = classification.identifier
             self.nameLabel.text = "\(classifiedPokemon.capitalized) " + String(format: "%.0f", classification.confidence * 100) + "%"
+            PokemonData.pokeInfo.name = classifiedPokemon.capitalized
             self.pokemonData.updateInfo(pokemon: classifiedPokemon.lowercased())
         }
         
@@ -83,6 +95,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func photoPressed(_ sender: UIBarButtonItem) {
          imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
+        if PokemonData.pokeInfo.name.lowercased() != "" {
+            if sender.state == .ended {
+                if showOriginal == true {
+                    imageView.image = originalImage
+                    showOriginal = !showOriginal
+                } else {
+                    imageView.image = UIImage(named: PokemonData.pokeInfo.name.lowercased())
+                    showOriginal = !showOriginal
+                }
+            }
+        }
     }
 }
 
@@ -119,3 +145,4 @@ extension ViewController: PokemonDataDelegate {
         //flavorTextLabel.sizeToFit()
     }
 }
+
