@@ -32,7 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
         navigationItem.title = "Who's that Pokemon!"
         PokemonData.pokeInfo.delegate = self
-        flavorTextLabel.text = "Show me a picture of a Pokemon\nand I'll tell you which one it is!"
+        flavorTextLabel.text = "Show me a picture and\n I'll tell you which Pokemon it is!"
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.imageTapped(_:)))
         tap.numberOfTapsRequired = 1
@@ -42,17 +42,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        
         if let selectedImage = info[.originalImage] as? UIImage {
-            
             originalImage = selectedImage
-            
             PokemonData.pokeInfo.reset()
             
             guard let ciimage = CIImage(image: selectedImage) else {
                 fatalError("failed to convert to CIIMage")
             }
+            
             detect(image: ciimage)
             imageView.image = selectedImage
         }
@@ -61,7 +58,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func detect(image: CIImage) {
-        
         guard let model = try? VNCoreMLModel(for: PokemonClassifier().model) else {
             fatalError("cannot load model")
         }
@@ -117,8 +113,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 extension ViewController: PokemonDataDelegate {
     
     func typesDidChange(leftValue: [String]) {
-        
-//        typeLabel.text! = ""
         let fullString = NSMutableAttributedString(string: "")
         
         for type in leftValue {
