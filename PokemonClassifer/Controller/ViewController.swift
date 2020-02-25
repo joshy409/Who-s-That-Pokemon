@@ -6,8 +6,6 @@
 //  Copyright © 2019 Joshua Yang. All rights reserved.
 //
 
-import CoreML
-import Vision
 import UIKit
 import Alamofire
 import SwiftyJSON
@@ -21,7 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var typeLabel: UILabel!
 
-    var pokemonData = PokemonDataGrabber()
+    var pokemonDataGrabbber = PokemonDataGrabber()
     var showOriginal: Bool = false
     
     var originalImage = UIImage()
@@ -50,38 +48,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 fatalError("failed to convert to CIIMage")
             }
             
-            detect(image: ciimage)
+
+            let classifiedPokemon = ImageClassifier.detect(image: ciimage)
+            self.nameLabel.text = "\(classifiedPokemon.capitalized)"
+            PokemonData.pokeInfo.name = classifiedPokemon.capitalized
+            self.pokemonDataGrabbber.updateInfo(pokemon: classifiedPokemon.lowercased())
+
             imageView.image = selectedImage
         }
         
         imagePicker.dismiss(animated: true, completion: nil)
     }
-    
-    func detect(image: CIImage) {
-        guard let model = try? VNCoreMLModel(for: PokemonClassifier().model) else {
-            fatalError("cannot load model")
-        }
-        
-        let request = VNCoreMLRequest(model: model) { (request, error) in
-            guard let classification = request.results?.first as? VNClassificationObservation else {
-                fatalError("could not classify image")
-            }
-            // if classification is successful
-            let classifiedPokemon = classification.identifier
-            self.nameLabel.text = "\(classifiedPokemon.capitalized) " + String(format: "%.0f", classification.confidence * 100) + "%"
-            PokemonData.pokeInfo.name = classifiedPokemon.capitalized
-            self.pokemonData.updateInfo(pokemon: classifiedPokemon.lowercased())
-        }
-        
-        let handler = VNImageRequestHandler(ciImage: image)
-        
-        do {
-            try handler.perform([request])
-        } catch {
-            print(error)
-        }
-    }
-    
     
     @IBAction func cameraPressed(_ sender: UIBarButtonItem) {
          imagePicker.sourceType = .camera
@@ -100,7 +77,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     imageView.image = originalImage
                     showOriginal = !showOriginal
                 } else {
-                    imageView.image = UIImage(named: PokemonData.pokeInfo.name.lowercased())
+                    imageView.image = UIImage(named: "PokeDex/\(PokemonData.pokeInfo.name.lowercased()).jpeg")
                     showOriginal = !showOriginal
                 }
             }

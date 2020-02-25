@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3fy-us-pm9">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3fy-us-pm9">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -70,11 +70,18 @@
                                 <action selector="photoPressed:" destination="BYZ-38-t0r" id="A1x-GQ-sUa"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="LRB-gd-fhx">
-                            <connections>
-                                <action selector="cameraPressed:" destination="BYZ-38-t0r" id="zOe-Su-N5U"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="LRB-gd-fhx">
+                                <connections>
+                                    <action selector="cameraPressed:" destination="BYZ-38-t0r" id="zOe-Su-N5U"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="arkit" catalog="system" id="13F-Oh-exK">
+                                <connections>
+                                    <segue destination="1fO-4T-GM8" kind="show" id="yTe-5z-33f"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="flavorTextLabel" destination="TLa-8k-zFp" id="kpJ-8v-PV4"/>
@@ -86,6 +93,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+        </scene>
+        <!--AR Controller Scene-->
+        <scene sceneID="CNf-qY-rvw">
+            <objects>
+                <viewController title="AR Controller Scene" id="1fO-4T-GM8" customClass="ARViewController" customModule="PokemonClassifier" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uXG-et-Y1J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0g-CJ-0MD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </arscnView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="b0g-CJ-0MD" firstAttribute="leading" secondItem="ODZ-Tc-iiJ" secondAttribute="leading" id="7P6-TY-Qfv"/>
+                            <constraint firstItem="b0g-CJ-0MD" firstAttribute="trailing" secondItem="ODZ-Tc-iiJ" secondAttribute="trailing" id="KSb-9w-HXj"/>
+                            <constraint firstItem="b0g-CJ-0MD" firstAttribute="top" secondItem="uXG-et-Y1J" secondAttribute="top" id="bbD-7f-mUv"/>
+                            <constraint firstAttribute="bottom" secondItem="b0g-CJ-0MD" secondAttribute="bottom" id="hEC-bA-9TM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ODZ-Tc-iiJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ehn-tg-faw"/>
+                    <connections>
+                        <outlet property="sceneView" destination="b0g-CJ-0MD" id="hHl-Lo-P1r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Lc-wh-iL3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1976.8115942028987" y="137.94642857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NGb-e8-tgl">
@@ -107,7 +144,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="133.33332824707031" height="133.33332824707031"/>
+        <image name="Logo" width="133" height="133"/>
+        <image name="arkit" catalog="system" width="64" height="64"/>
         <image name="photo.on.rectangle" catalog="system" width="64" height="48"/>
     </resources>
 </document>
