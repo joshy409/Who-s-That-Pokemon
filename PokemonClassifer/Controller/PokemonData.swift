@@ -9,8 +9,7 @@
 import UIKit
 
 class PokemonData {
-    
-    //let viewController = UIApplication.shared.windows.first!.rootViewController as! UINavigationController
+
     var delegate: PokemonDataDelegate?
     
     var flavorText : String = "" {

@@ -13,26 +13,27 @@ import SwiftyJSON
 class PokemonDataGrabber: ObservableObject {
     
     func updateInfo(pokemon: String) {
+        AF.request("https://pokeapi.co/api/v2/pokemon-species/\(pokemon)").responseJSON { (response) in
         
-        Alamofire.request("https://pokeapi.co/api/v2/pokemon-species/\(pokemon)").responseJSON { (response) in
-            if response.result.isSuccess {
-                //print(response)
-                let pokemonJSON : JSON = JSON(response.result.value!)
+            switch response.result {
+            case .success(let value):
+                let pokemonJSON : JSON = JSON(value)
                 let flavorTexts = pokemonJSON["flavor_text_entries"][]
                 self.getEnFlavorText(texts: flavorTexts)
-            } else {
+            case .failure(_):
                 print("request failed")
             }
         }
         
-        Alamofire.request("https://pokeapi.co/api/v2/pokemon/\(pokemon)").responseJSON { (response) in
-            if response.result.isSuccess {
-                let pokemonJSON : JSON = JSON(response.result.value!)
+        AF.request("https://pokeapi.co/api/v2/pokemon/\(pokemon)").responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let pokemonJSON : JSON = JSON(value)
                 let types = pokemonJSON["types"][]
                 self.getTypes(pokemonTypes: types)
-            } else {
-                print("request failed")
-            }
+            case .failure(_):
+                    print("request failed")
+                }
         }
     }
     
